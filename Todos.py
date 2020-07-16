@@ -1,21 +1,31 @@
-from urllib.request import urlopen
-import json
-import pprint
+def output(todos):
+    import pprint as pp
 
-def main():
+    pp.pprint(todos)
+    print(todos[0]['title'])
+
+def handleResponse(response):
+    import json
+
+    if response.getcode() == 200:
+        data = response.read()
+        todos = json.loads(data)
+        output(todos)
+    else:
+        print("Some error happen, Can't get any results")
+    
+
+def getTodos():
+    from urllib.request import urlopen
+    
     targetURL = "https://jsonplaceholder.typicode.com/todos"
     response = urlopen(targetURL)
+    handleResponse(response)
 
-    if (response.getcode() == 200):
-        data = response.read()
+        
+def main():
+    getTodos()
 
-        todos = json.loads(data)
-        for i in range(5):
-            for key in todos[i]:
-                print(key, todos[i][key])
-            print('\n-----------\n')
-    else:
-        print("Some error happen, Can't retrive results")
 
-if(__name__ == '__main__'):
+if __name__ == '__main__':
     main()
