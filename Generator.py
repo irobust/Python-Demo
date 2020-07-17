@@ -7,6 +7,8 @@ def gen123():
     yield 3
 
 it = gen123()
+it = (i for i in range(1,4)) # Short syntax
+
 print(next(it))
 print(next(it))
 print(next(it))
