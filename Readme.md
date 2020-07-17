@@ -4,8 +4,8 @@
 * bool()
 * dir()
 * type()
-* int.__class__
-* basic.__annotations__
+* [int.__class__]
+* [basic.__annotations__]
 * import inspect
 * sig = inspect.signature(funcName)
 * sig.parameters['parameterName']
