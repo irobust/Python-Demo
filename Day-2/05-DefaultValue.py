@@ -13,5 +13,7 @@ add_spam()
 add_spam()
 
 show_default()
+time.sleep(5)
 show_default()
+time.sleep(5)
 show_default()
